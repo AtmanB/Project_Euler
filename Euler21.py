@@ -20,7 +20,10 @@ def proper_divisor_sum(n):
     current = 2
     while current < bar:
         if n % current == 0:
+
             sum = sum + current + n / current
+            if current == n / current:
+                sum -= current
             bar = n / current
         current = current + 1
     return sum
