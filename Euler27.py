@@ -40,4 +40,5 @@ def is_prime(n):
     return True
 
 
-main()
+if __name__ == '__main__':
+    main()
