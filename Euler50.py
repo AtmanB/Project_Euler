@@ -1,4 +1,5 @@
 from Euler27 import is_prime
+from Timer import timethis
 
 
 def main():
@@ -14,10 +15,10 @@ def main():
                     ans = q
     print(ans, max_con)
 
-
+@timethis
 def get_all_primes_until(n):
-    primes = []
-    for i in range(n):
+    primes = [1, 2]
+    for i in range(3, n, 2):
         if is_prime(i):
             primes.append(i)
     return primes
