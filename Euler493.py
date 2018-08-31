@@ -82,7 +82,9 @@ def main():
         ans2 += chance_of_colors(i)
     print(ans)
     print(ans2)
-
+    '''
+    THE SOLUTION >_>
+    '''
     print(7 * (1 - choose(60, 20) / choose(70, 20)))
     # print(set_of_nums(20, 7, 10))
     # print(chance_of_colors(2, 20, 70, 10) * (factorial(7)/(factorial(5) * factorial(2))))

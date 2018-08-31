@@ -29,6 +29,40 @@ def proper_divisor_sum(n):
         current = current + 1
     return sum
 
+def get_divisors(n):
+    bar = n
+    current = 2
+
+    rel = [1,]
+    rer = [n]
+    while current < bar:
+        if n % current == 0:
+            rel.append(current)
+            rer = [n // current] + rer
+            # sum = sum + current + n / current
+            if current == n / current:
+                rel.pop()
+            bar = n / current
+        current = current + 1
+    return rel + rer
+
+def get_divisors_up_to_sqrt(n):
+    bar = n ** 0.5
+    current = 2
+
+    rel = [1,]
+    # rer = [n]
+    while current < bar:
+        if n % current == 0:
+            rel.append(current)
+            # rer = [n // current] + rer
+            # # sum = sum + current + n / current
+            # if current == n / current:
+            #     rel.pop()
+            # bar = n / current
+        current = current + 1
+    return rel
+
 
 def get_abundant_numbers(n):
     list_of = []
@@ -302,6 +336,30 @@ def get_all_primes_until(n):
         if is_prime(i):
             primes.append(i)
     return primes
+
+def sieve_of_eratosthenes(n):
+    a = [True] * (n + 1)
+    i = 2
+    while i <= n ** 0.5:
+        if a[i]:
+            j = i * i
+
+            while j <= n:
+                a[j] = False
+                j += i
+        i += 1
+
+    r = []
+    for idx in range(1, n + 1):
+        if a[idx]:
+            r.append(idx)
+    return r , a
+
+
+
+
+
+
 def phi_function(n):
     result = n
     primes = prime_factors(n)
