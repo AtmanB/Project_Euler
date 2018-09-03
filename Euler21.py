@@ -26,7 +26,7 @@ def proper_divisor_sum(n):
                 sum -= current
             bar = n / current
         current = current + 1
-    return sum
+    return sum + n
 
 if __name__ == '__main__':
     main()
