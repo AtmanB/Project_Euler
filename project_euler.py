@@ -338,6 +338,11 @@ def get_all_primes_until(n):
     return primes
 
 def sieve_of_eratosthenes(n):
+    """
+
+    :param n: until n
+    :return: returns both the array of primes and the boolean table
+    """
     a = [True] * (n + 1)
     i = 2
     while i <= n ** 0.5:

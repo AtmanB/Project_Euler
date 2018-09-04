@@ -1,37 +1,21 @@
-from Euler27 import is_prime
+from project_euler import *
 from Timer import timethis
 
 
 @timethis
 def main():
-    # if is_harshad(201):
-    #     print('ok')
-    # print(str(123456789)[:-1])
-    # if is_right_truncatable_harshad(201):
-    #     print('ok')
-    # if is_strong_harshad(201):
-    #      print('ok')
-    # if is_prime(5.6):
-    #     print('ok', 5.6 % 5)
-    # if is_strong_right_truncatable_harshad_prime(2011):
-    #         print('ok')
-
     ans = 0
-    # primes = get_all_primes_until((10 ** 6) + 1)
-    # for prime in primes:
-    #     if is_strong_right_truncatable_harshad_prime(prime):
-    #         ans += prime
-    # print(ans)
-
-    s_r_h = get_all_strong_right_truncatable_harshads_until(10 ** 13 + 1)
-
-    for h in s_r_h:
-        for a in [1, 3, 5, 7, 9]:
-            temp = int(str(h) + str(a))
-            if is_prime(temp):
-                ans += temp
+    b = [True] * 10 ** 8
+    primes, _ = sieve_of_eratosthenes(10 ** 8)
+    print("tables ready")
+    # print(primes)
+    for pri in primes[5:]:
+        # print(pri)
+        p = int(str(pri)[:-1])
+        if is_strong_harshad(p):
+            if is_right_truncatable_harshad(p):
+                ans += pri
     print(ans)
-
 
 def is_harshad(n):
     s_d = 0
@@ -93,11 +77,6 @@ def get_all_strong_right_truncatable_harshads_until(n):
         else:
             i += 10 ** (len(str(i)) - 1)
     return harshads
-'''
-
-abcde, a+b+c+d+e 2ds 1-18 3ds 1-27 
-
-'''
 
 if __name__ == '__main__':
     main()
