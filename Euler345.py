@@ -1,5 +1,14 @@
-def hungarian_max(m):
+def hungarian(m, minmax):
     l = len(m)
+    if minmax == 'max':
+        _max_ = 0
+        for row in m:
+            if max(row) > _max_:
+                _max_ = max(row)
+        for row in m:
+            for i in range(l):
+                row[i] = _max_ - row[i]
+
     m0 = []
     for row in m:
         temp = []
@@ -66,6 +75,7 @@ def hungarian_max(m):
             for j in marked_columns:
                 m0[i][j] += min_
     print(m, m0)
+    print(_max_)
 
 
 
@@ -77,7 +87,7 @@ def column(matrix, i):
 
 
 def main(m):
-    ans = hungarian_max(m)
+    ans = hungarian(m, 'max')
     print(ans)
 
 
